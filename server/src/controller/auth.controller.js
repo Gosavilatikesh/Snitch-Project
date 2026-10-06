@@ -25,7 +25,7 @@ export async function register(req, res) {
   const user = await userModel.create({
     email,
     name,
-    passwordHash: await bcrypt.hash(password, 12),
+    passwordHash: await bcryptjs.hash(password, 12),
   });
 
   const accessToken = createAccessToken({
